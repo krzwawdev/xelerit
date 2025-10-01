@@ -1,0 +1,23 @@
+<div class="header">
+  <a class="back" routerLink="/">← Back</a>
+  <h2>{{ part() | titlecase }}</h2>
+</div>
+
+<div class="grid">
+  @for (m of muscles(); track m.key) {
+    <button class="card" (click)="open(m)">
+      <img [src]="m.image" [alt]="m.title" />
+      <div class="title">{{ m.title }}</div>
+    </button>
+  }
+</div>
+
+<app-stretch-modal
+  [open]="!!selected()"
+  [title]="selected()?.title ?? ''"
+  [description]="selected()?.description ?? ''"
+  [videoUrl]="selected()?.videoUrl ?? ''"
+  (closed)="close()"
+></app-stretch-modal>
+
+

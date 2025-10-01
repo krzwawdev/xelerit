@@ -1,0 +1,10 @@
+<h1>Stretch it - sposób na usunięcie bólu mięśni</h1>
+<div class="grid">
+  @for (part of bodyParts; track part.key) {
+    <a class="card" [routerLink]="['/body', part.key]">
+      <img [src]="part.image" [alt]="part.title" />
+      <div class="title">{{ part.title }}</div>
+    </a>
+  }</div>
+
+

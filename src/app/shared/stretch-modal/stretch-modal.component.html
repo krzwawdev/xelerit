@@ -1,0 +1,19 @@
+<div class="overlay" *ngIf="open" (click)="closed.emit()"></div>
+<div class="modal" *ngIf="open" role="dialog" aria-modal="true">
+	<button class="close" (click)="closed.emit()" aria-label="Close">✕</button>
+	<h3>{{ title }}</h3>
+	<p class="desc">{{ description }}</p>
+	<div class="video-wrap">
+		<iframe
+			*ngIf="safeVideoUrl"
+			width="560" height="315"
+			[src]="safeVideoUrl"
+			title="Stretch video"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+		></iframe>
+	</div>
+</div>
+
+
